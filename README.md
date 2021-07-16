@@ -35,6 +35,12 @@ curl http://localhost:8000
 Hello, Container World!
 ```
 
+## Using pre-built container
+
+```
+docker run -p 8000:80 -e MESSAGE='Hello, Container World!' public.ecr.aws/toricls/go-hello-world:latest
+```
+
 ## Licence
 
 [MIT](LICENSE)
