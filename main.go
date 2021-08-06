@@ -37,6 +37,7 @@ func main() {
 		logger.Info("I'm about to say something for you",
 			zap.String("method", r.Method),
 			zap.String("path", r.URL.Path),
+			zap.String("ua", r.UserAgent()),
 		)
 	})
 	if err := http.ListenAndServe(listenAddr, nil); err != nil {
