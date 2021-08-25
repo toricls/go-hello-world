@@ -14,7 +14,7 @@ Hello, World!
 ## Customizing message and port number
 
 ```
-MESSAGE='Hey hey, Yo!' PORT_NUMBER=8080 go run ./main.go
+MESSAGE='Hey hey, Yo!' PORT_NUMBER=8080 SLEEP_MILLISEC=300 go run ./main.go
 ```
 
 ```
