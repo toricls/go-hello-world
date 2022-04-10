@@ -40,7 +40,7 @@ docker run -p 8000:80 -e MESSAGE='Hello, Container World!' go-hello-world:latest
 
 ### Run on AWS Lambda
 
-`go-hello-world` natively supports running on AWS Lambda as container image. Try deploying a new AWS Lambda function in your AWS account using the pre-build container image `public.ecr.aws/toricls/go-hello-world:latest` :)
+`go-hello-world` natively supports running on AWS Lambda. Try creating a new AWS Lambda function in your AWS account using your own container image. (Just pulling `public.ecr.aws/toricls/go-hello-world:latest` on your laptop and push it to your ECR private repository is the easiest way I think, because AWS Lambda doesn't support ECR Public today).
 
 See the `main` function in [`main.go`](main.go) to know how you can implement in the same way in your go app.
 
