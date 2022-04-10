@@ -1,12 +1,12 @@
-FROM public.ecr.aws/bitnami/golang:1.16
+FROM public.ecr.aws/docker/library/golang:1.18-buster as builder
 WORKDIR /go/src/github.com/toricls/go-hello-world/
-COPY go.mod .
-COPY main.go .
 RUN go env -w GOPROXY=direct
-RUN go mod tidy
+COPY go.mod go.sum ./
+RUN go mod download
+COPY main.go .
 RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o app .
 
 FROM scratch
 WORKDIR /root/
-COPY --from=0 /go/src/github.com/toricls/go-hello-world/app .
-CMD ["./app"]
+COPY --from=builder /go/src/github.com/toricls/go-hello-world/app .
+ENTRYPOINT ["./app"]
