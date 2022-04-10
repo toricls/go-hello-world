@@ -24,13 +24,13 @@ curl http://localhost:8080
 Hey hey, Yo!
 ```
 
-## Use pre-built container image
+### Use pre-built container image
 
 ```shell
 docker run -p 8000:80 -e MESSAGE='Hello, Container World!' public.ecr.aws/toricls/go-hello-world:latest
 ```
 
-## Build and use your own container image
+### Build and use your own container image
 
 ```shell
 docker build -t go-hello-world:latest .
@@ -38,7 +38,7 @@ docker build -t go-hello-world:latest .
 docker run -p 8000:80 -e MESSAGE='Hello, Container World!' go-hello-world:latest
 ```
 
-## Run on AWS Lambda
+### Run on AWS Lambda
 
 `go-hello-world` natively supports running on AWS Lambda as container image. Try deploying a new AWS Lambda function in your AWS account using the pre-build container image `public.ecr.aws/toricls/go-hello-world:latest` :)
 
